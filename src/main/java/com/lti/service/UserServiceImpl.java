@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User find(int uname) {
+	public User find(String uname) {
 		// TODO Auto-generated method stub
 		return repo.fetch(uname);
 	}
@@ -33,6 +33,12 @@ public class UserServiceImpl implements UserService {
 	public List<User> load() {
 		// TODO Auto-generated method stub
 		return repo.list();
+	}
+
+	@Transactional(value = TxType.REQUIRED)
+	public void edit(User user) {
+		// TODO Auto-generated method stub
+		repo.update(user);
 	}
 
 }

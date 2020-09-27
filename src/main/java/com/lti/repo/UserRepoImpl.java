@@ -19,7 +19,7 @@ public class UserRepoImpl implements UserRepo{
 	}
 
 	@Override
-	public User fetch(int uname) {
+	public User fetch(String uname) {
 		// TODO Auto-generated method stub
 		return em.find(User.class, uname);
 	}
@@ -28,6 +28,13 @@ public class UserRepoImpl implements UserRepo{
 	public List<User> list() {
 		// TODO Auto-generated method stub
 		return em.createQuery("from User").getResultList();
+	}
+
+	@Override
+	public void update(User user) {
+		// TODO Auto-generated method stub
+		em.merge(user);
+		
 	}
 
 }
