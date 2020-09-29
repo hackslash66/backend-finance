@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -44,6 +45,8 @@ public class User {
 	//@OnDelete(action=OnDeleteAction.CASCADE)
 	private List<Product> products=new ArrayList<Product>();
 
+	@OneToOne(mappedBy = "u", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER )
+	private Emicard emicard;
 
 	public String getUname() {
 		return uname;
@@ -162,6 +165,16 @@ public class User {
 
 	public void setProducts(List<Product> products) {
 		this.products = products;
+	}
+
+
+	public Emicard getEmicard() {
+		return emicard;
+	}
+
+
+	public void setEmicard(Emicard emicard) {
+		this.emicard = emicard;
 	}
 	
 	

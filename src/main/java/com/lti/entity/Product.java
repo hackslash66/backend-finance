@@ -23,6 +23,7 @@ public class Product {
 	@ManyToOne
 	@JoinColumn(name = "uname")
 	private User user;
+	
 	public int getPid() {
 		return pid;
 	}

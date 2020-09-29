@@ -106,7 +106,7 @@ private EntityManagerFactory factory;
 	
 
 	@Test
-	public void testDeleteDept() {
+	public void testDeleteUser() {
 		EntityManager em = factory.createEntityManager();
 		EntityTransaction txn = em.getTransaction();
 		txn.begin();
@@ -117,14 +117,14 @@ private EntityManagerFactory factory;
 	}
 	
 	@Test
-	public void testFetchDept() {
+	public void testFetchProd() {
 		EntityManager em = factory.createEntityManager();
-		EntityTransaction txn = em.getTransaction();
-		txn.begin();
+		
 		User u1 =em.find(User.class, "jkl");
 		System.out.println(u1.getName()+"\t"+u1.getBank());
-		System.out.println("No of products bought buy user: "+u1.getName()+" is \t"+u1.getProducts().size());
+		System.out.println("No of products bought by user: "+u1.getName()+" is \t"+u1.getProducts().size());
+		
+		em.close();
 	}
-	
 	
 }
