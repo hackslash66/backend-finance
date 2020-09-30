@@ -1,6 +1,8 @@
 package com.lti.service;
 
+import java.util.Base64;
 import java.util.List;
+import java.util.Base64.Encoder;
 
 import javax.transaction.Transactional;
 import javax.transaction.Transactional.TxType;
@@ -9,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lti.entity.User;
+import com.lti.pojo.Login;
 import com.lti.repo.UserRepo;
 @Service
 public class UserServiceImpl implements UserService {
@@ -39,6 +42,16 @@ public class UserServiceImpl implements UserService {
 	public void edit(User user) {
 		// TODO Auto-generated method stub
 		repo.update(user);
+	}
+
+	@Override
+	public User validate(Login login) {
+		String pwd= login.getPwd();
+		Encoder encoder = Base64.getEncoder();
+		login.setPwd(new String(encoder.encode(pwd.getBytes())));
+		
+		return repo.verifyLogin(login);
+		}
 	}
 
 }

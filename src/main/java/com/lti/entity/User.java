@@ -14,6 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "users")
+@NamedQuery(name = "login", query = "FROM User WHERE uname=:uname AND pwd=:pwd")
 @NamedQuery(name = "fetchifyes", query = "select u from User u where u.approvalstatus=:approvalstatus")
 public class User {
 	

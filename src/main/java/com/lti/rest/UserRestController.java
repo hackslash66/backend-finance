@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.entity.User;
+import com.lti.pojo.Login;
 import com.lti.service.UserService;
 
 @CrossOrigin
@@ -39,5 +41,14 @@ public class UserRestController {
 	public String updateEmployee(@RequestBody User user) {
 		service.edit(user);
 		return "Employee updated successfully";
+	}
+	
+
+	@GetMapping(value = "/login", produces = "application/json")
+	public User login(@RequestParam("username") String username,@RequestParam("password") String password) {
+		Login login = new Login(username, password);
+		User user = service.validate(login);
+		System.out.println(user.getUname() + "\t" + user.getPwd());
+		return user;
 	}
 }

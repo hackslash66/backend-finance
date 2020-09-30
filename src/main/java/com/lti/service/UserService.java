@@ -4,6 +4,7 @@ import java.util.List;
 
 
 import com.lti.entity.User;
+import com.lti.pojo.Login;
 
 public interface UserService {
 void persist(User user);
@@ -13,4 +14,6 @@ void persist(User user);
 	List<User> load();
 	
 	void edit(User emp);
+	
+	User validate(Login login);
 }

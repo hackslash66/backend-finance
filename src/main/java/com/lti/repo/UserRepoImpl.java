@@ -4,10 +4,12 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
 import com.lti.entity.User;
+import com.lti.pojo.Login;
 @Repository
 public class UserRepoImpl implements UserRepo{
 	@PersistenceContext
@@ -35,6 +37,14 @@ public class UserRepoImpl implements UserRepo{
 		// TODO Auto-generated method stub
 		em.merge(user);
 		
+	}
+
+	@Override
+	public User verifyLogin(Login login) {
+		Query query = em.createNamedQuery("login");
+		query.setParameter("uname", login.getUname());
+		query.setParameter("pwd", login.getPwd());
+		return (User)query.getSingleResult();
 	}
 
 }
