@@ -8,174 +8,146 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
 
 @Entity
 @Table(name = "users")
+@NamedQuery(name = "fetchifyes", query = "select u from User u where u.approvalstatus=:approvalstatus")
 public class User {
+	
 	@Id
-	@Column(name = "uname", length=15)
-	private String uname;
-	@Column(name = "email", length=15)
-	private String email;
-	@Column(name = "password",length=15)
-	private String password;
-	@Column(name = "phone",length=15)
-	private String phone;
-	@Column(name = "name",length=15)
-	private String name;
-	@Column(name = "account",length=20)
-	private String account;
-	@Column(name = "ifsc",length=15)
-	private String ifsc;
-	@Column(name = "address",length=15)
-	private String address;
-	@Column(name = "bank",length=15)
-	private String bank;
-	@Column(name = "card",length=15)
-	private String card;
-	@Column(name = "status",length=15)
-	private String approvalstatus;
+	@Column(name = "uname")
+	private String uName;
 	
+	@Column(name = "uemail")
+	private String uEmail;
 	
-	@OneToMany(mappedBy = "user",cascade= {CascadeType.ALL},fetch=FetchType.EAGER)
-	//@OnDelete(action=OnDeleteAction.CASCADE)
-	private List<Product> products=new ArrayList<Product>();
+	@Column(name = "upwd")
+	private String uPwd;
+	
+	@Column(name = "ucontact")
+	private String uContact;
+	
+	@Column(name = "name")
+	private String Name;
+	
+	@Column(name = "ubankacct")
+	private String uBankAcct;
+	
+	@Column(name = "uifsc")
+	private String uIfsc;
+	
+	@Column(name = "uaddress")
+	private String uAddress;
+	
+	@Column(name = "ubank")
+	private String uBank;
+	
+	@Column(name = "ucardtype")
+	private String uCardType;
+	
+	@Column(name = "status")
+	private String approvalStatus;
 
-	@OneToOne(mappedBy = "u", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER )
-	private Emicard emicard;
+	@OneToMany(mappedBy = "user", cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	private List<Order> ord = new ArrayList<Order>();
 
 	public String getUname() {
-		return uname;
+		return uName;
 	}
-
 
 	public void setUname(String uname) {
-		this.uname = uname;
+		this.uName = uname;
 	}
 
-
-	public String getEmail() {
-		return email;
+	public String getUemail() {
+		return uEmail;
 	}
 
-
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUemail(String uemail) {
+		this.uEmail = uemail;
 	}
 
-
-	public String getPassword() {
-		return password;
+	public String getUpwd() {
+		return uPwd;
 	}
 
-
-	public void setPassword(String password) {
-		this.password = password;
+	public void setUpwd(String upwd) {
+		this.uPwd = upwd;
 	}
 
-
-	public String getPhone() {
-		return phone;
+	public String getUcontact() {
+		return uContact;
 	}
 
-
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setUcontact(String ucontact) {
+		this.uContact = ucontact;
 	}
-
 
 	public String getName() {
-		return name;
+		return Name;
 	}
-
 
 	public void setName(String name) {
-		this.name = name;
+		Name = name;
 	}
 
-
-	public String getAccount() {
-		return account;
+	public String getUbankacct() {
+		return uBankAcct;
 	}
 
-
-	public void setAccount(String account) {
-		this.account = account;
+	public void setUbankacct(String ubankacct) {
+		this.uBankAcct = ubankacct;
 	}
 
-
-	public String getIfsc() {
-		return ifsc;
+	public String getUifsc() {
+		return uIfsc;
 	}
 
-
-	public void setIfsc(String ifsc) {
-		this.ifsc = ifsc;
+	public void setUifsc(String uifsc) {
+		this.uIfsc = uifsc;
 	}
 
-
-	public String getAddress() {
-		return address;
+	public String getUaddress() {
+		return uAddress;
 	}
 
-
-	public void setAddress(String address) {
-		this.address = address;
+	public void setUaddress(String uaddress) {
+		this.uAddress = uaddress;
 	}
 
-
-	public String getBank() {
-		return bank;
+	public String getUcardtype() {
+		return uCardType;
 	}
 
-
-	public void setBank(String bank) {
-		this.bank = bank;
+	public void setUcardtype(String ucardtype) {
+		this.uCardType = ucardtype;
 	}
-
-
-	public String getCard() {
-		return card;
-	}
-
-
-	public void setCard(String card) {
-		this.card = card;
-	}
-
 
 	public String getApprovalstatus() {
-		return approvalstatus;
+		return approvalStatus;
 	}
-
 
 	public void setApprovalstatus(String approvalstatus) {
-		this.approvalstatus = approvalstatus;
+		this.approvalStatus = approvalstatus;
 	}
 
-
-	public List<Product> getProducts() {
-		return products;
+	public List<Order> getOrd() {
+		return ord;
 	}
 
-
-	public void setProducts(List<Product> products) {
-		this.products = products;
+	public void setOrd(List<Order> ord) {
+		this.ord = ord;
 	}
 
-
-	public Emicard getEmicard() {
-		return emicard;
+	public String getBank() {
+		return uBank;
 	}
 
-
-	public void setEmicard(Emicard emicard) {
-		this.emicard = emicard;
+	public void setBank(String bank) {
+		this.uBank = bank;
 	}
-	
-	
+
 }

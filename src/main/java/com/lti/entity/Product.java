@@ -1,10 +1,17 @@
 package com.lti.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -13,49 +20,44 @@ import javax.persistence.Table;
 public class Product {
 	
 	@Id
-	private int pid;
+	private int pID;
 	@Column(length = 30)
-	private String pname;
+	private String pName;
 	@Column(length = 200)
-	private String pdetails;
+	private String pDetails;
 	@Column
-	private double prate;
-	@ManyToOne
-	@JoinColumn(name = "uname")
-	private User user;
+	private double pRate;
+	
+	@ManyToMany(mappedBy = "prod",cascade= {CascadeType.ALL},fetch=FetchType.EAGER)
+	private List<Order> ord=new ArrayList<Order>();
 	
 	public int getPid() {
-		return pid;
+		return pID;
 	}
 	public void setPid(int pid) {
-		this.pid = pid;
+		this.pID = pid;
 	}
 	
 	public String getPname() {
-		return pname;
+		return pName;
 	}
 	public void setPname(String pname) {
-		this.pname = pname;
+		this.pName = pname;
 	}
 	
 	public String getPdetails() {
-		return pdetails;
+		return pDetails;
 	}
 	public void setPdetails(String pdetails) {
-		this.pdetails = pdetails;
+		this.pDetails = pdetails;
 	}
 	
 	public double getPrate() {
-		return prate;
+		return pRate;
 	}
 	public void setPrate(double prate) {
-		this.prate = prate;
+		this.pRate = prate;
 	}
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
+	
 	
 }

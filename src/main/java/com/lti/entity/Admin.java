@@ -9,13 +9,13 @@ import javax.persistence.Table;
 @Table(name = "admin_cred")
 public class Admin {
 	@Id
-	@Column(name = "adminUserID")
+	@Column(name = "admin_UserID")
 	private String adminUserID;
 	
-	@Column(name = "adminPwd")
+	@Column(name = "admin_Pwd")
 	private String adminPwd;
 	
-	@Column(name = "adminName")
+	@Column(name = "admin_Name")
 	private String adminName;
 
 	public String getAdminUserID() {

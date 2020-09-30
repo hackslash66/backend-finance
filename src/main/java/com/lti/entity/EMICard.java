@@ -16,27 +16,27 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "emi_card")
-public class Emicard {
+public class EMICard {
+	
 	@Id
 	@Column(name = "reg_no", length = 16)
 	private String cardNo;
-	@Column(name = "issue_date", length = 20)
-	private String issuedate;
-	@Column(name = "expiry_date", length = 20)
-	private String expirydate;
-	@Column(name = "emi_limit", length = 20)
-	private double emilimit;
 	
+	@Column(name = "issue_date", length = 20)
+	private String issueDate;
+	
+	@Column(name = "expiry_date", length = 20)
+	private String expiryDate;
+	
+	@Column(name = "emi_limit", length = 20)
+	private double emiLimit;
+
 	@OneToOne
 	@JoinColumn(name = "uname")
-	User u;
+	User user;
+//	@OneToMany(cascade = {CascadeType.ALL},fetch = FetchType.EAGER)
+//	private List<Product> products = new ArrayList<Product>();
 
-	@OneToMany(cascade = {CascadeType.ALL},fetch = FetchType.EAGER)
-	private List<Product> products = new ArrayList<Product>();
-
-	public String getCardNo() {
-		return cardNo;
-	}
 
 
 	public void setCardNo(String cardNo) {
@@ -45,53 +45,53 @@ public class Emicard {
 
 
 	public String getIssuedate() {
-		return issuedate;
+		return issueDate;
 	}
 
 
 	public void setIssuedate(String issuedate) {
-		this.issuedate = issuedate;
+		this.issueDate = issuedate;
 	}
 
 
 	public String getExpirydate() {
-		return expirydate;
+		return expiryDate;
 	}
 
 
 	public void setExpirydate(String expirydate) {
-		this.expirydate = expirydate;
+		this.expiryDate = expirydate;
 	}
 
 
-	public User getU() {
-		return u;
-	}
+//	public User getU() {
+//		return u;
+//	}
+//
+//
+//	public void setU(User u) {
+//		this.u = u;
+//	}
 
 
-	public void setU(User u) {
-		this.u = u;
-	}
-
-
-	public List<Product> getProducts() {
-		return products;
-	}
-
-
-	public void setProducts(List<Product> products) {
-		this.products = products;
-	}
+//	public List<Product> getProducts() {
+//		return products;
+//	}
+//
+//
+//	public void setProducts(List<Product> products) {
+//		this.products = products;
+//	}
 
 
 	public double getEmilimit() {
-		return emilimit;
+		return emiLimit;
 	}
 
 
 	public void setEmilimit(double emilimit) {
-		this.emilimit = emilimit;
+		this.emiLimit = emilimit;
 	}
-	
-	
+
+
 }
