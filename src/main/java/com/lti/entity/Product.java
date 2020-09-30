@@ -28,7 +28,7 @@ public class Product {
 	@Column
 	private double pRate;
 	
-	@ManyToMany(mappedBy = "prod",cascade= {CascadeType.ALL},fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "prod",cascade= {CascadeType.ALL},fetch=FetchType.EAGER)
 	private List<Order> ord=new ArrayList<Order>();
 	
 	public int getPid() {
