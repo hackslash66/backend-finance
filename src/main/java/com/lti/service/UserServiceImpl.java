@@ -23,6 +23,9 @@ public class UserServiceImpl implements UserService {
 	@Transactional(value = TxType.REQUIRED)
 	public void persist(User user) {
 		// TODO Auto-generated method stub
+		String pwd = user.getPwd();
+		Encoder encoder = Base64.getEncoder();
+		user.setPwd(new String((encoder.encode(pwd.getBytes()))));
 		repo.save(user);
 	}
 
