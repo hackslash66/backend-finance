@@ -21,32 +21,32 @@ public class User {
 	@Column(name = "uname")
 	private String uName;
 	
-	@Column(name = "uemail")
-	private String uEmail;
+	@Column(name = "email")
+	private String Email;
 	
-	@Column(name = "upwd")
-	private String uPwd;
+	@Column(name = "pwd")
+	private String Pwd;
 	
-	@Column(name = "ucontact")
-	private String uContact;
+	@Column(name = "contact")
+	private String Contact;
 	
 	@Column(name = "name")
 	private String Name;
 	
-	@Column(name = "ubankacct")
-	private String uBankAcct;
+	@Column(name = "bankacct")
+	private String BankAcct;
 	
-	@Column(name = "uifsc")
-	private String uIfsc;
+	@Column(name = "ifsc")
+	private String Ifsc;
 	
-	@Column(name = "uaddress")
-	private String uAddress;
+	@Column(name = "address")
+	private String Address;
 	
-	@Column(name = "ubank")
-	private String uBank;
+	@Column(name = "bank")
+	private String Bank;
 	
-	@Column(name = "ucardtype")
-	private String uCardType;
+	@Column(name = "cardtype")
+	private String CardType;
 	
 	@Column(name = "status")
 	private String approvalStatus;
@@ -62,28 +62,28 @@ public class User {
 		this.uName = uname;
 	}
 
-	public String getUemail() {
-		return uEmail;
+	public String getEmail() {
+		return Email;
 	}
 
-	public void setUemail(String uemail) {
-		this.uEmail = uemail;
+	public void setEmail(String Email) {
+		this.Email = Email;
 	}
 
-	public String getUpwd() {
-		return uPwd;
+	public String getPwd() {
+		return Pwd;
 	}
 
-	public void setUpwd(String upwd) {
-		this.uPwd = upwd;
+	public void setPwd(String Pwd) {
+		this.Pwd = Pwd;
 	}
 
-	public String getUcontact() {
-		return uContact;
+	public String getContact() {
+		return Contact;
 	}
 
-	public void setUcontact(String ucontact) {
-		this.uContact = ucontact;
+	public void setContact(String Contact) {
+		this.Contact = Contact;
 	}
 
 	public String getName() {
@@ -94,36 +94,36 @@ public class User {
 		Name = name;
 	}
 
-	public String getUbankacct() {
-		return uBankAcct;
+	public String getBbankacct() {
+		return BankAcct;
 	}
 
-	public void setUbankacct(String ubankacct) {
-		this.uBankAcct = ubankacct;
+	public void setBankacct(String Bankacct) {
+		this.BankAcct = Bankacct;
 	}
 
-	public String getUifsc() {
-		return uIfsc;
+	public String getIfsc() {
+		return Ifsc;
 	}
 
-	public void setUifsc(String uifsc) {
-		this.uIfsc = uifsc;
+	public void setIfsc(String ifsc) {
+		this.Ifsc = ifsc;
 	}
 
-	public String getUaddress() {
-		return uAddress;
+	public String getAddress() {
+		return Address;
 	}
 
-	public void setUaddress(String uaddress) {
-		this.uAddress = uaddress;
+	public void setAddress(String Address) {
+		this.Address = Address;
 	}
 
-	public String getUcardtype() {
-		return uCardType;
+	public String getCardtype() {
+		return CardType;
 	}
 
-	public void setUcardtype(String ucardtype) {
-		this.uCardType = ucardtype;
+	public void setCardtype(String cardtype) {
+		this.CardType = cardtype;
 	}
 
 	public String getApprovalstatus() {
@@ -143,11 +143,11 @@ public class User {
 	}
 
 	public String getBank() {
-		return uBank;
+		return Bank;
 	}
 
 	public void setBank(String bank) {
-		this.uBank = bank;
+		this.Bank = bank;
 	}
 
 }
