@@ -15,6 +15,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
+/**
+ * @author surya
+ *
+ * @version 1.8
+ */
+
+
 @Entity
 @Table(name = "products")
 public class Product {
@@ -28,8 +35,8 @@ public class Product {
 	@Column
 	private double pRate;
 	
-	@OneToMany(mappedBy = "prod",cascade= {CascadeType.ALL},fetch=FetchType.EAGER)
-	private List<Order> ord=new ArrayList<Order>();
+//	@OneToMany(mappedBy = "prod",cascade= {CascadeType.ALL},fetch=FetchType.EAGER)
+//	private List<Order> ord=new ArrayList<Order>();
 	
 	public int getPid() {
 		return pID;

@@ -5,6 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
+/**
+ * @author venkat
+ *
+ * @version 1.8
+ */
+
 @Entity
 @Table(name = "admin_cred")
 public class Admin {

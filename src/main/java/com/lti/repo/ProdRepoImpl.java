@@ -10,6 +10,12 @@ import org.springframework.stereotype.Repository;
 import com.lti.entity.Product;
 import com.lti.entity.User;
 
+/**
+ * @author Surya
+ *
+ * @version 1.8
+ */
+
 @Repository
 public class ProdRepoImpl implements ProdRepo {
 
@@ -30,7 +36,7 @@ public class ProdRepoImpl implements ProdRepo {
 
 	@Override
 	public List<Product> list() {
-		return (List<Product>)em.createQuery("from product").getResultList();
+		return (List<Product>)em.createQuery("FROM Product").getResultList();
 	}
 
 }

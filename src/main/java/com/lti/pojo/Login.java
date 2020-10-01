@@ -1,5 +1,11 @@
 package com.lti.pojo;
 
+/**
+ * @author Surya
+ *
+ * @version 1.8
+ */
+
 public class Login {
 	
 	private String uname;

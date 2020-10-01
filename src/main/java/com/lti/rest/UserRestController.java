@@ -16,6 +16,12 @@ import com.lti.entity.User;
 import com.lti.pojo.Login;
 import com.lti.service.UserService;
 
+/**
+ * @author yashwanth
+ *
+ * @version 1.8
+ */
+
 @CrossOrigin
 @RestController
 public class UserRestController {

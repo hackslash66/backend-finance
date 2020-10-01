@@ -6,6 +6,11 @@ import java.util.List;
 import com.lti.entity.User;
 import com.lti.pojo.Login;
 
+/**
+ * 
+ * @author Yashwanth
+ *
+ */
 public interface UserService {
 void persist(User user);
 	

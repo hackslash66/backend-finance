@@ -11,6 +11,12 @@ import org.springframework.stereotype.Service;
 import com.lti.entity.Product;
 import com.lti.repo.ProdRepo;
 
+/**
+ * 
+ * @author Surya
+ *
+ */
+
 @Service
 public class ProductServiceImpl implements ProductService {
 

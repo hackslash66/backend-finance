@@ -4,6 +4,12 @@ import java.util.List;
 
 import com.lti.entity.Product;
 
+/**
+ * @author Surya
+ *
+ * @version 1.8
+ */
+
 public interface ProdRepo {
 	
 	void save(Product prod);

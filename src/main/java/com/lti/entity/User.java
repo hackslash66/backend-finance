@@ -12,6 +12,14 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+
+
+/**
+ * @author Akshara
+ *
+ * @version 1.8
+ */
+
 @Entity
 @Table(name = "users")
 @NamedQuery(name = "login", query = "FROM User WHERE uname=:uname AND pwd=:pwd")

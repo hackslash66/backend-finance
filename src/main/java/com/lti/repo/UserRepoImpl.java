@@ -10,10 +10,18 @@ import org.springframework.stereotype.Repository;
 
 import com.lti.entity.User;
 import com.lti.pojo.Login;
+
+/**
+ * @author yashwanth
+ *
+ * @version 1.8
+ */
+
 @Repository
-public class UserRepoImpl implements UserRepo{
+public class UserRepoImpl implements UserRepo {
 	@PersistenceContext
 	private EntityManager em;
+
 	@Override
 	public void save(User user) {
 		// TODO Auto-generated method stub
@@ -36,7 +44,7 @@ public class UserRepoImpl implements UserRepo{
 	public void update(User user) {
 		// TODO Auto-generated method stub
 		em.merge(user);
-		
+
 	}
 
 	@Override
@@ -44,7 +52,7 @@ public class UserRepoImpl implements UserRepo{
 		Query query = em.createNamedQuery("login");
 		query.setParameter("uname", login.getUname());
 		query.setParameter("pwd", login.getPwd());
-		return (User)query.getSingleResult();
+		return (User) query.getSingleResult();
 	}
 
 }
