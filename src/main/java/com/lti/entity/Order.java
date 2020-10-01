@@ -5,13 +5,15 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
- * 
- * @author akshara
+ * @author yashwanth
  *
+ * @version 1.8
  */
+
 @Entity
 @Table(name = "orders")
 public class Order {
@@ -20,12 +22,18 @@ public class Order {
 	@Column(name = "Order_id")
 	private int orderID;
 	
+	@Column(name = "Order_date")
+	private String orderDate;
+	
+	@Column(name = "emi_duration")
+	private String emiDuration;
+	
 	@ManyToOne
 	@JoinColumn(name = "uname")
 	private User user;
 
 	
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "pname")
 	private Product product;
 
