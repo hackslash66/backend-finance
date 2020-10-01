@@ -7,7 +7,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
+/**
+ * 
+ * @author akshara
+ *
+ */
 @Entity
 @Table(name = "orders")
 public class Order {
