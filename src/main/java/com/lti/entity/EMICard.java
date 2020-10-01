@@ -39,10 +39,6 @@ public class EMICard {
 	@OneToOne
 	@JoinColumn(name = "uname")
 	private User user;
-//	@OneToMany(cascade = {CascadeType.ALL},fetch = FetchType.EAGER)
-//	private List<Product> products = new ArrayList<Product>();
-
-
 
 	public void setCardNo(String cardNo) {
 		this.cardNo = cardNo;
@@ -68,27 +64,6 @@ public class EMICard {
 		this.expiryDate = expirydate;
 	}
 
-
-//	public User getU() {
-//		return u;
-//	}
-//
-//
-//	public void setU(User u) {
-//		this.u = u;
-//	}
-
-
-//	public List<Product> getProducts() {
-//		return products;
-//	}
-//
-//
-//	public void setProducts(List<Product> products) {
-//		this.products = products;
-//	}
-
-
 	public double getEmilimit() {
 		return emiLimit;
 	}
@@ -97,6 +72,4 @@ public class EMICard {
 	public void setEmilimit(double emilimit) {
 		this.emiLimit = emilimit;
 	}
-
-
 }
