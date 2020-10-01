@@ -71,4 +71,26 @@ public class Order {
 	public void setProd(Product prod) {
 		this.product = prod;
 	}
+
+
+	public String getOrderDate() {
+		return orderDate;
+	}
+
+
+	public void setOrderDate(String orderDate) {
+		this.orderDate = orderDate;
+	}
+
+
+	public String getEmiDuration() {
+		return emiDuration;
+	}
+
+
+	public void setEmiDuration(String emiDuration) {
+		this.emiDuration = emiDuration;
+	}
+	
+	
 }
