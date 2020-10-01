@@ -54,7 +54,7 @@ public class UserServiceImpl implements UserService {
 		login.setPwd(new String(encoder.encode(pwd.getBytes())));
 		
 		return repo.verifyLogin(login);
-		}
 	}
-
 }
+
+
