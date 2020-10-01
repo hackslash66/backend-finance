@@ -14,7 +14,7 @@ public interface ProdRepo {
 	
 	void save(Product prod);
 	
-	Product fetch(String pname);
+	Product fetch(int pId);
 	
 	List<Product> list();
 }

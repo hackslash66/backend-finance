@@ -30,8 +30,8 @@ public class ProductRestController {
 	}
 	
 	@GetMapping(value = "/fetch/{id}", produces = "application/json")
-	public Product fetchProduct(@PathVariable String pname) {
-		return service.find(pname);
+	public Product fetchProduct(@PathVariable int pId) {
+		return service.find(pId);
 	}
 	
 	@GetMapping(value = "/list", produces = "application/json")

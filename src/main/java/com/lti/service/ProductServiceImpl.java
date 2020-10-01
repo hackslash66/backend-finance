@@ -35,7 +35,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public Product find(String pname) {
-		return repo.fetch(pname);
+	public Product find(int pId) {
+		return repo.fetch(pId);
 	}
 }

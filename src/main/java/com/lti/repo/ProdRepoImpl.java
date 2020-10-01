@@ -29,9 +29,9 @@ public class ProdRepoImpl implements ProdRepo {
 	}
 
 	@Override
-	public Product fetch(String pname) {
+	public Product fetch(int pId) {
 		
-		return em.find(Product.class, pname);
+		return em.find(Product.class, pId);
 	}
 
 	@Override

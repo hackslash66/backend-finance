@@ -14,7 +14,7 @@ public interface ProductService {
 	
 	void persist(Product product);
 	
-	Product find(String pname);
+	Product find(int pId);
 	
 	List<Product> load();
 }	
