@@ -32,7 +32,7 @@ public class ProductRestController {
 		return "Product added successfully";
 	}
 	
-	@GetMapping(value = "/fetchproduct/{id}", produces = "application/json")
+	@GetMapping(value = "/fetchproduct/{pId}", produces = "application/json")
 	public Product fetchProduct(@PathVariable int pId) {
 		return service.find(pId);
 	}
