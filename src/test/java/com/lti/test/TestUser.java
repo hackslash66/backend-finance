@@ -49,13 +49,13 @@ private EntityManagerFactory factory;
 		User u1 =new User();
 		u1.setName("Yash");
 		u1.setAddress("jdjd");
-		u1.setApprovalstatus("yes");
-		u1.setBankacct("45123");
-		u1.setCardtype("gold");
-		u1.setContact("97845623");
+		u1.setStatus("yes");
+		u1.setAccount("45123");
+		u1.setCard("gold");
+		u1.setPhone("97845623");
 		u1.setIfsc("45552");
 		u1.setUname("qwerty");
-		u1.setPwd("mejdj");
+		u1.setPassword("mejdj");
 		u1.setEmail("yash@gmail.com");
 		u1.setBank("HDFC");
 		
