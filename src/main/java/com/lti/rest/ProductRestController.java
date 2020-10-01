@@ -18,6 +18,10 @@ import com.lti.service.ProductService;
  * @author  venkat
  *
  */
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/hackslash66/backend-finance.git
 @CrossOrigin
 @RestController
 public class ProductRestController {
@@ -31,13 +35,18 @@ public class ProductRestController {
 		return "Product added successfully";
 	}
 	
-	@GetMapping(value = "/fetch/{id}", produces = "application/json")
+	@GetMapping(value = "/fetchproduct/{pId}", produces = "application/json")
 	public Product fetchProduct(@PathVariable int pId) {
 		return service.find(pId);
 	}
 	
+<<<<<<< HEAD
 	@GetMapping(value = "/listproduct", produces = "application/json")
 	public List<Product> listEmployee(){
+=======
+	@GetMapping(value = "/listproducts", produces = "application/json")
+	public List<Product> listProducts(){
+>>>>>>> branch 'master' of https://github.com/hackslash66/backend-finance.git
 		return service.load();
 	}
 	
