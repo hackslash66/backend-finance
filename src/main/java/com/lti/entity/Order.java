@@ -39,7 +39,7 @@ public class Order {
 
 	
 	@OneToOne
-	@JoinColumn(name = "pname")
+	@JoinColumn(name = "pId")
 	private Product product;
 
 
