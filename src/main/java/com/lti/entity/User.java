@@ -22,125 +22,133 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "users")
-@NamedQuery(name = "login", query = "FROM User WHERE uname=:uname AND pwd=:pwd")
-@NamedQuery(name = "fetchifyes", query = "select u from User u where u.approvalstatus=:approvalstatus")
+@NamedQuery(name = "login", query = "FROM User WHERE uname=:username AND password=:password")
+@NamedQuery(name = "fetchifyes", query = "select u from User u where u.status=:status")
 public class User {
 	
 	@Id
-	@Column(name = "uname")
-	private String uName;
+	@Column(name = "uname",length=15)
+	private String uname;
 	
-	@Column(name = "email")
-	private String Email;
+	@Column(name = "email",length=25)
+	private String email;
 	
-	@Column(name = "pwd")
-	private String Pwd;
+	@Column(name = "password",length=15)
+	private String password;
 	
-	@Column(name = "contact")
-	private String Contact;
+	@Column(name = "phone",length=15)
+	private String phone;
 	
-	@Column(name = "name")
-	private String Name;
+	@Column(name = "name",length=15)
+	private String name;
 	
-	@Column(name = "bankacct")
-	private String BankAcct;
+	@Column(name = "account",length=16)
+	private String account;
 	
-	@Column(name = "ifsc")
-	private String Ifsc;
+	@Column(name = "ifsc",length=15)
+	private String ifsc;
 	
-	@Column(name = "address")
-	private String Address;
+	@Column(name = "address",length=15)
+	private String address;
 	
-	@Column(name = "bank")
-	private String Bank;
+	@Column(name = "bank",length=15)
+	private String bank;
 	
-	@Column(name = "cardtype")
-	private String CardType;
+	@Column(name = "card",length=15)
+	private String card;
 	
-	@Column(name = "status")
-	private String approvalStatus;
+	@Column(name = "status",length=15)
+	private String status;
 
 	@OneToMany(mappedBy = "user", cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
 	private List<Order> ord = new ArrayList<Order>();
 
 	public String getUname() {
-		return uName;
+		return uname;
 	}
 
 	public void setUname(String uname) {
-		this.uName = uname;
+		this.uname = uname;
 	}
 
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 
-	public void setEmail(String Email) {
-		this.Email = Email;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public String getPwd() {
-		return Pwd;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPwd(String Pwd) {
-		this.Pwd = Pwd;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	public String getContact() {
-		return Contact;
+	public String getPhone() {
+		return phone;
 	}
 
-	public void setContact(String Contact) {
-		this.Contact = Contact;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 
-	public String getBbankacct() {
-		return BankAcct;
+	public String getAccount() {
+		return account;
 	}
 
-	public void setBankacct(String Bankacct) {
-		this.BankAcct = Bankacct;
+	public void setAccount(String account) {
+		this.account = account;
 	}
 
 	public String getIfsc() {
-		return Ifsc;
+		return ifsc;
 	}
 
 	public void setIfsc(String ifsc) {
-		this.Ifsc = ifsc;
+		this.ifsc = ifsc;
 	}
 
 	public String getAddress() {
-		return Address;
+		return address;
 	}
 
-	public void setAddress(String Address) {
-		this.Address = Address;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
-	public String getCardtype() {
-		return CardType;
+	public String getBank() {
+		return bank;
 	}
 
-	public void setCardtype(String cardtype) {
-		this.CardType = cardtype;
+	public void setBank(String bank) {
+		this.bank = bank;
 	}
 
-	public String getApprovalstatus() {
-		return approvalStatus;
+	public String getCard() {
+		return card;
 	}
 
-	public void setApprovalstatus(String approvalstatus) {
-		this.approvalStatus = approvalstatus;
+	public void setCard(String card) {
+		this.card = card;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public List<Order> getOrd() {
@@ -151,12 +159,6 @@ public class User {
 		this.ord = ord;
 	}
 
-	public String getBank() {
-		return Bank;
-	}
-
-	public void setBank(String bank) {
-		this.Bank = bank;
-	}
+	
 
 }

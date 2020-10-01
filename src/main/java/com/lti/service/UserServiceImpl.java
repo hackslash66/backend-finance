@@ -13,27 +13,21 @@ import org.springframework.stereotype.Service;
 import com.lti.entity.User;
 import com.lti.pojo.Login;
 import com.lti.repo.UserRepo;
-
-
 /**
- * 
- * @author Yashwanth
+ * @author yashwanth
  *
+ * @version 1.8
  */
 @Service
 public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserRepo repo;
-
 	@Override
-
+	
 	@Transactional(value = TxType.REQUIRED)
 	public void persist(User user) {
 		// TODO Auto-generated method stub
-		String pwd = user.getPwd();
-		Encoder encoder = Base64.getEncoder();
-		user.setPwd(new String((encoder.encode(pwd.getBytes()))));
 		repo.save(user);
 	}
 
@@ -57,10 +51,12 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User validate(Login login) {
-		String pwd = login.getPwd();
-		Encoder encoder = Base64.getEncoder();
-		login.setPwd(new String(encoder.encode(pwd.getBytes())));
-
+//		String pwd= login.getPwd();
+//		Encoder encoder = Base64.getEncoder();
+//		login.setPwd(new String(encoder.encode(pwd.getBytes())));
+		
 		return repo.verifyLogin(login);
+		}
 	}
-}
+
+

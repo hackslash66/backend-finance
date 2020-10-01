@@ -16,6 +16,7 @@ import com.lti.entity.User;
 import com.lti.pojo.Login;
 import com.lti.service.UserService;
 
+
 /**
  * @author yashwanth
  *
@@ -51,10 +52,11 @@ public class UserRestController {
 	
 
 	@GetMapping(value = "/login", produces = "application/json")
-	public User login(@RequestParam("username") String username,@RequestParam("password") String password) {
-		Login login = new Login(username, password);
+	public User login(@RequestParam("uname") String uname,@RequestParam("password") String password) {
+		Login login = new Login(uname, password);
 		User user = service.validate(login);
-		System.out.println(user.getUname() + "\t" + user.getPwd());
+		System.out.println(user.getUname() + "\t" + user.getPassword());
+		
 		return user;
 	}
 }
