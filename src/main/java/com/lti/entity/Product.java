@@ -26,6 +26,7 @@ import javax.persistence.Table;
 public class Product {
 	
 	@Id
+	@Column(name = "pId", length = 10)
 	private int pID;
 	
 	@Column(name="pname",length = 30)

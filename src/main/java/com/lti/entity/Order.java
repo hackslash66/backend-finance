@@ -33,8 +33,8 @@ public class Order {
 	private User user;
 
 	
-	@OneToOne
-	@JoinColumn(name = "pname")
+	@ManyToOne
+	@JoinColumn(name = "pId")
 	private Product product;
 
 
