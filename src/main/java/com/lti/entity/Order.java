@@ -2,10 +2,13 @@ package com.lti.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -16,10 +19,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "orders")
+@SequenceGenerator(name = "ordseq", sequenceName = "seq_ord", initialValue = 1001, allocationSize = 1)
 public class Order {
 
 	@Id
 	@Column(name = "Order_id")
+	@GeneratedValue(generator = "ordseq", strategy = GenerationType.SEQUENCE)
 	private int orderID;
 	
 	@Column(name = "Order_date")
@@ -33,8 +38,8 @@ public class Order {
 	private User user;
 
 	
-	@ManyToOne
-	@JoinColumn(name = "pId")
+	@OneToOne
+	@JoinColumn(name = "pname")
 	private Product product;
 
 
