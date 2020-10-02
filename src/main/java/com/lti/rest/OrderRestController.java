@@ -1,7 +1,10 @@
 package com.lti.rest;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -45,5 +48,11 @@ public class OrderRestController {
 		o.setUser(u);
 		service.persist(o);
 		return "order added";
+	}
+	
+	@GetMapping(value="/u_orders")
+	public List<Order> fetchOrder(@RequestParam("username") String username) {
+		List<Order> res=service.load(username);
+		return res;
 	}
 }

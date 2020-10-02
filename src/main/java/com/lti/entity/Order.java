@@ -38,7 +38,7 @@ public class Order {
 	private User user;
 
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "pId")
 	private Product product;
 
