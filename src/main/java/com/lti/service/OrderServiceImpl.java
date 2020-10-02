@@ -31,13 +31,9 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public List<Order> load(String uname) {
-		
-		List<Order> res=repo.list(uname);
-
-		
-		
-		return res;
+	public List<Order> load(String uname) {		
+		List<Order> result = repo.list(uname);		
+		return result;
 	}
 
 }

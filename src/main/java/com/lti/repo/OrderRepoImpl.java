@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
@@ -21,25 +22,21 @@ import org.springframework.jdbc.core.JdbcTemplate;
 @Repository
 public class OrderRepoImpl implements OrderRepo {
 
-	private JdbcTemplate jdbcTemp;
-	
 	@PersistenceContext
 	private EntityManager em;
+	
 	@Override
-	public void save(Order order) {
-		
+	public void save(Order order) {		
 		em.persist(order);
 	}
 
 	@Override
-	public List<Order> list(String uname) {
+	public List<Order> list(String uname) {		
+		String sql="SELECT * FROM orders WHERE uname=:username";
+		Query q = em.createNativeQuery(sql, Order.class);
+		q.setParameter("username", uname);
+		List<Order> orders = q.getResultList();
 		
-		
-		String sql="select * from orders where uname=?";
-		List result = jdbcTemp.queryForList(sql, uname);
-		
-		return result;
-		
-	}
-
+		return orders;		
+	}	
 }
