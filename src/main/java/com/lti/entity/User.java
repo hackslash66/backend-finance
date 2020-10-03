@@ -142,6 +142,7 @@ public class User {
 	public void setCard(String card) {
 		this.card = card;
 	}
+	
 
 	public String getStatus() {
 		return status;

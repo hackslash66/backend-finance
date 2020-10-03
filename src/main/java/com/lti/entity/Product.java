@@ -1,10 +1,20 @@
 package com.lti.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -16,50 +26,56 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "products")
-@SequenceGenerator(name = "custseq", sequenceName = "seq_cust", initialValue = 1001, allocationSize = 1)
 public class Product {
 	
 	@Id
-	@Column(name = "pId", length = 10)
-	@GeneratedValue(generator = "custseq", strategy = GenerationType.SEQUENCE)
-	private int pID;
+	@Column(name = "pId")
+	private int pId;
 	
 	@Column(name="pname",length = 30)
 	private String pName;
 	
-	@Column(name="pdetails",length = 200)
+	@Column(name="pdes",length = 200)
 	private String pDetails;
 	
-	@Column(name = "pRate", length = 10)
+	@Column(name="prate")
 	private double pRate;
-		
-	public int getPid() {
-		return pID;
+
+	public int getpId() {
+		return pId;
 	}
-	public void setPid(int pid) {
-		this.pID = pid;
+
+	public void setpId(int pId) {
+		this.pId = pId;
 	}
-	
-	public String getPname() {
+
+	public String getpName() {
 		return pName;
 	}
-	public void setPname(String pname) {
-		this.pName = pname;
+
+	public void setpName(String pName) {
+		this.pName = pName;
 	}
-	
-	public String getPdetails() {
+
+	public String getpDetails() {
 		return pDetails;
 	}
-	public void setPdetails(String pdetails) {
-		this.pDetails = pdetails;
+
+	public void setpDetails(String pDetails) {
+		this.pDetails = pDetails;
 	}
-	
-	public double getPrate() {
+
+	public double getpRate() {
 		return pRate;
 	}
-	public void setPrate(double prate) {
-		this.pRate = prate;
+
+	public void setpRate(double pRate) {
+		this.pRate = pRate;
 	}
+	
+	
+	
+	
 	
 	
 }
