@@ -1,10 +1,20 @@
 package com.lti.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -27,6 +37,7 @@ public class Product {
 	@Column(name = "pName", length = 30)
 	private String pName;
 
+
 	@Column(name = "pDetails", length = 200)
 	private String pDetails;
 
@@ -44,36 +55,37 @@ public class Product {
 		this.pImgSrc = pImgSrc;
 	}
 
-	public int getPid() {
+	public int getpID() {
 		return pID;
 	}
 
-	public void setPid(int pid) {
-		this.pID = pid;
+
+	public void setpId(int pID) {
+		this.pID = pID;
 	}
 
-	public String getPname() {
+	public String getpName() {
 		return pName;
 	}
 
-	public void setPname(String pname) {
-		this.pName = pname;
+	public void setpName(String pName) {
+		this.pName = pName;
 	}
 
-	public String getPdetails() {
+	public String getpDetails() {
 		return pDetails;
 	}
 
-	public void setPdetails(String pdetails) {
-		this.pDetails = pdetails;
+
+	public void setpDetails(String pDetails) {
+		this.pDetails = pDetails;
 	}
 
-	public double getPrate() {
+
+	public double getpRate() {
 		return pRate;
 	}
-
-	public void setPrate(double prate) {
-		this.pRate = prate;
+	public void setpRate(double pRate) {
+		this.pRate = pRate;
 	}
-
 }

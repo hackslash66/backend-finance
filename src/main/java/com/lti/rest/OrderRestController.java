@@ -36,23 +36,46 @@ public class OrderRestController {
 	
 
 	@PostMapping(value = "/ord" )
-	public String AddOrd(@RequestParam("orderDate") String date,
-			@RequestParam("duration") String duration,
-			@RequestParam("username") String username,
-			@RequestParam("productId") int productID){
+	public String AddOrd(
+			@RequestParam(value="duration",required=false) String duration,
+			@RequestParam(value="username") String username,
+			@RequestParam(value="orderDate") String date,
+			@RequestParam(value="productId") int productID){
 		User u = uservice.find(username);
 		Product p = pservice.find(productID);
 		Order o = new Order();
 		o.setOrderDate(date);
-		o.setEmiDuration(duration);
-		o.setProd(p);
+		o.setEmiDuration("4");
+		o.setProduct(p);
 		o.setUser(u);
 		service.persist(o);
 		return "order added";
 	}
 	
+
+	@PostMapping(value = "/order" )
+	public String AddOrd(
+			@RequestBody Order order)
+			{
+		
+		System.out.println(order.getUser().getUname()+"  "+
+				 order.getProduct().getpId() +"  "+order.getProduct().getpRate()+ order.getOrderDate()+ "  "
+				+order.getOrderID());
+		User u = uservice.find(order.getUser().getUname());
+		Product p = pservice.find(order.getProduct().getpId());
+//		Order o = new Order();
+//		o.setOrderDate(order.getOrderDate());
+//		o.setEmiDuration(order.getEmiDuration());
+		order.setProduct(p);
+		order.setUser(u);
+		
+		service.persist(order);
+		return "order added";
+	}
+	
 	@GetMapping(value="/u_orders")
 	public List<Order> fetchOrder(@RequestParam("username") String username) {
+		System.out.println(username);
 		List<Order> res=service.load(username);
 		return res;
 	}

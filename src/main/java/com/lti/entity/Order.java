@@ -22,6 +22,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "orders")
 @SequenceGenerator(name = "ordseq", sequenceName = "seq_ord", initialValue = 1001, allocationSize = 1)
+//@NamedQuery(name = "orderfetch", query = "FROM orders WHERE  uname=:username ")
 public class Order {
 
 	@Id
@@ -44,6 +45,75 @@ public class Order {
 	@JoinColumn(name = "pID")
 	private Product product;
 
+	@Column(name = "productname",length=50)
+	private String productname;
+	
+	@Column(name = "producturl",length=80)
+	private String producturl;
+	
+	@Column(name = "amountPaid")
+	private String amountPaid;
+	
+	@Column(name = "dueAmount")
+	private String dueAmount;
+	
+	@Column(name = "monthsLeft")
+	private String monthsLeft;
+	
+
+	
+
+	public String getAmountPaid() {
+		return amountPaid;
+	}
+
+
+	public void setAmountPaid(String amountPaid) {
+		this.amountPaid = amountPaid;
+	}
+
+
+	public String getDueAmount() {
+		return dueAmount;
+	}
+
+
+	public void setDueAmount(String dueAmount) {
+		this.dueAmount = dueAmount;
+	}
+
+
+	public String getMonthsLeft() {
+		return monthsLeft;
+	}
+
+
+	public void setMonthsLeft(String monthsLeft) {
+		this.monthsLeft = monthsLeft;
+	}
+
+
+	public String getProductname() {
+		return productname;
+	}
+
+
+	public void setProductname(String productname) {
+		this.productname = productname;
+	}
+
+
+	public String getProducturl() {
+		return producturl;
+	}
+
+
+	public void setProducturl(String producturl) {
+		this.producturl = producturl;
+	}
+
+
+	
 
 	public int getO_id() {
 		return orderID;
@@ -65,13 +135,16 @@ public class Order {
 	}
 
 
-	public Product getProd() {
-		return product;
+	
+
+
+	public int getOrderID() {
+		return orderID;
 	}
 
 
-	public void setProd(Product prod) {
-		this.product = prod;
+	public void setOrderID(int orderID) {
+		this.orderID = orderID;
 	}
 
 
@@ -85,6 +158,10 @@ public class Order {
 	}
 
 
+	
+
+	
+
 	public String getEmiDuration() {
 		return emiDuration;
 	}
@@ -93,6 +170,18 @@ public class Order {
 	public void setEmiDuration(String emiDuration) {
 		this.emiDuration = emiDuration;
 	}
-	
-	
+
+
+	public Product getProduct() {
+		return product;
+	}
+
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+	@Override
+	public String toString() {
+		return "Order [id=" + orderID + ", stock=" + orderDate + ", quantity=" + emiDuration + ", quote=" + user+ ",product=" + product +"]";
+	}
 }
