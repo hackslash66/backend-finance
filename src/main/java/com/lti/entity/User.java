@@ -152,9 +152,9 @@ public class User {
 		this.status = status;
 	}
 
-	public List<Order> getOrd() {
-		return ord;
-	}
+//	public List<Order> getOrd() {
+//		return ord;
+//	}
 
 	public void setOrd(List<Order> ord) {
 		this.ord = ord;

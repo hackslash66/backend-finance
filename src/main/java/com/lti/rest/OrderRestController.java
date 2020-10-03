@@ -34,6 +34,7 @@ public class OrderRestController {
 	@Autowired
 	private ProductService pservice;
 	
+
 	@PostMapping(value = "/ord" )
 	public String AddOrd(
 			@RequestParam(value="duration",required=false) String duration,
@@ -51,6 +52,7 @@ public class OrderRestController {
 		return "order added";
 	}
 	
+<<<<<<< HEAD
 	@PostMapping(value = "/order" )
 	public String AddOrd(
 			@RequestBody Order order)
@@ -74,6 +76,10 @@ public class OrderRestController {
 	@GetMapping(value="/u_orders")
 	public List<Order> fetchOrder(@RequestParam("username") String username) {
 		System.out.println(username);
+=======
+	@GetMapping(value="/u_orders")
+	public List<Order> fetchOrder(@RequestParam("username") String username) {
+>>>>>>> branch 'master' of https://github.com/hackslash66/backend-finance.git
 		List<Order> res=service.load(username);
 		return res;
 	}
