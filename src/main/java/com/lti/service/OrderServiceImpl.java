@@ -26,7 +26,6 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-<<<<<<< HEAD
 	public List<Order> load(String uname) {
 		
 		List<Order> res=repo.list(uname);
@@ -34,11 +33,7 @@ public class OrderServiceImpl implements OrderService {
 		
 		
 		return res;
-=======
-	public List<Order> load(String uname) {		
-		List<Order> result = repo.list(uname);		
-		return result;
->>>>>>> branch 'master' of https://github.com/hackslash66/backend-finance.git
+
 	}
 
 }
