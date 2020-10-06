@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lti.entity.Product;
-import com.lti.repo.ProdRepo;
+import com.lti.repo.ProductRepo;
 
 /**
  * 
@@ -21,20 +21,17 @@ import com.lti.repo.ProdRepo;
 public class ProductServiceImpl implements ProductService {
 
 	@Autowired
-	private ProdRepo repo;
-	
+	private ProductRepo repo;
+
 	@Transactional(value = TxType.REQUIRED)
-	@Override
 	public void persist(Product product) {
 		repo.save(product);
 	}
 
-	@Override
 	public List<Product> load() {
 		return repo.list();
 	}
 
-	@Override
 	public Product find(int pId) {
 		return repo.fetch(pId);
 	}

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,7 +35,6 @@ public class OrderRestController {
 	@Autowired
 	private ProductService pservice;
 	
-
 	@PostMapping(value = "/ord" )
 	public String AddOrd(
 			@RequestParam(value="duration",required=false) String duration,
@@ -45,21 +45,17 @@ public class OrderRestController {
 		Product p = pservice.find(productID);
 		Order o = new Order();
 		o.setOrderDate(date);
-		o.setEmiDuration("4");
+		//o.setEmiDuration("4");
 		o.setProduct(p);
 		o.setUser(u);
 		service.persist(o);
 		return "order added";
 	}
 	
-
 	@PostMapping(value = "/order" )
-	public String AddOrd(
-			@RequestBody Order order)
-			{
-		
+	public String AddOrd(@RequestBody Order order){		
 		System.out.println(order.getUser().getUname()+"  "+
-				 order.getProduct().getpId() +"  "+order.getProduct().getpRate()+ order.getOrderDate()+ "  "
+				 order.getProduct().getpId() +"  "+order.getProduct().getPrate()+ order.getOrderDate()+ "  "
 				+order.getOrderID());
 		User u = uservice.find(order.getUser().getUname());
 		Product p = pservice.find(order.getProduct().getpId());
@@ -78,5 +74,12 @@ public class OrderRestController {
 		System.out.println(username);
 		List<Order> res=service.load(username);
 		return res;
+	}
+	
+	
+	@PutMapping(value = "/editorder", consumes = "application/json")
+	public String updateUser(@RequestBody Order order) {
+		service.edit(order);
+		return "Order updated successfully";
 	}
 }

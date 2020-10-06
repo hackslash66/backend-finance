@@ -3,16 +3,13 @@ package com.lti.repo;
 import java.util.List;
 
 import com.lti.entity.Product;
-
 /**
- * @author Surya
+ * @author surya
  *
  * @version 1.8
  */
-
-public interface ProdRepo {
-	
-	void save(Product prod);
+public interface ProductRepo {
+void save(Product prod);
 	
 	Product fetch(int pId);
 	

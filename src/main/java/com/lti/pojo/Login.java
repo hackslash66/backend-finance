@@ -1,15 +1,13 @@
 package com.lti.pojo;
-
 /**
- * @author Surya
+ * @author surya
  *
  * @version 1.8
  */
-
 public class Login {
 	
 	private String uname;
-	private String pwd;
+	private String password;
 
 	public Login() {
 		// TODO Auto-generated constructor stub
@@ -17,7 +15,7 @@ public class Login {
 
 	public Login(String uname, String pwd) {
 		this.uname = uname;
-		this.pwd = pwd;
+		this.password = pwd;
 	}
 
 	public String getUname() {
@@ -29,10 +27,10 @@ public class Login {
 	}
 
 	public String getPwd() {
-		return pwd;
+		return password;
 	}
 
 	public void setPwd(String pwd) {
-		this.pwd = pwd;
+		this.password = pwd;
 	}
 }

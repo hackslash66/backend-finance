@@ -18,7 +18,6 @@ import com.lti.service.ProductService;
  * @author  venkat
  *
  */
-
 @CrossOrigin
 @RestController
 public class ProductRestController {
@@ -36,7 +35,7 @@ public class ProductRestController {
 	public Product fetchProduct(@PathVariable int pId) {
 		return service.find(pId);
 	}
-
+	
 	@GetMapping(value = "/listproducts", produces = "application/json")
 	public List<Product> listProducts(){
 		return service.load();

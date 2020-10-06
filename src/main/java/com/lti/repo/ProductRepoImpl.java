@@ -8,35 +8,30 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
 import com.lti.entity.Product;
-import com.lti.entity.User;
 
 /**
- * @author Surya
+ * @author surya
  *
  * @version 1.8
  */
-
 @Repository
-public class ProdRepoImpl implements ProdRepo {
+public class ProductRepoImpl implements ProductRepo {
 
 	@PersistenceContext
 	private EntityManager em;
-	
-	@Override
+
 	public void save(Product prod) {
-		
+
 		em.persist(prod);
 	}
 
-	@Override
 	public Product fetch(int pId) {
-		
+
 		return em.find(Product.class, pId);
 	}
 
-	@Override
 	public List<Product> list() {
-		return (List<Product>)em.createQuery("FROM Product").getResultList();
+		return em.createQuery("from Product").getResultList();
 	}
 
 }

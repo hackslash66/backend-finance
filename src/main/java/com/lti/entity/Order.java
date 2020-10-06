@@ -2,7 +2,6 @@ package com.lti.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,159 +28,116 @@ public class Order {
 	@Column(name = "Order_id")
 	@GeneratedValue(generator = "ordseq", strategy = GenerationType.SEQUENCE)
 	private int orderID;
-	
-	@Column(name = "Order_date")
+
+	@Column(name = "Order_date", length = 15)
 	private String orderDate;
-	
+
 	@Column(name = "emi_duration")
-	private String emiDuration;
-	
+	private int emiDuration;
+
 	@ManyToOne
 	@JoinColumn(name = "uname")
 	private User user;
 
-	
 	@ManyToOne
-	@JoinColumn(name = "pID")
+	@JoinColumn(name = "pId")
 	private Product product;
 
-	@Column(name = "productname",length=50)
-	private String productname;
-	
-	@Column(name = "producturl",length=80)
-	private String producturl;
-	
 	@Column(name = "amountPaid")
-	private String amountPaid;
-	
+	private double amountPaid;
+
 	@Column(name = "dueAmount")
-	private String dueAmount;
-	
+	private double dueAmount;
+
 	@Column(name = "monthsLeft")
-	private String monthsLeft;
-	
+	private int monthsLeft;
 
-	
+	@Column(name = "recentDate", length = 15)
+	private String recentDate;
 
-	public String getAmountPaid() {
+	public String getRecentDate() {
+		return recentDate;
+	}
+
+	public void setRecentDate(String recentDate) {
+		this.recentDate = recentDate;
+	}
+
+	public double getAmountPaid() {
 		return amountPaid;
 	}
 
-
-	public void setAmountPaid(String amountPaid) {
+	public void setAmountPaid(double amountPaid) {
 		this.amountPaid = amountPaid;
 	}
 
-
-	public String getDueAmount() {
+	public double getDueAmount() {
 		return dueAmount;
 	}
 
-
-	public void setDueAmount(String dueAmount) {
+	public void setDueAmount(double dueAmount) {
 		this.dueAmount = dueAmount;
 	}
 
-
-	public String getMonthsLeft() {
+	public int getMonthsLeft() {
 		return monthsLeft;
 	}
 
-
-	public void setMonthsLeft(String monthsLeft) {
+	public void setMonthsLeft(int monthsLeft) {
 		this.monthsLeft = monthsLeft;
 	}
-
-
-	public String getProductname() {
-		return productname;
-	}
-
-
-	public void setProductname(String productname) {
-		this.productname = productname;
-	}
-
-
-	public String getProducturl() {
-		return producturl;
-	}
-
-
-	public void setProducturl(String producturl) {
-		this.producturl = producturl;
-	}
-
-
-	
 
 	public int getO_id() {
 		return orderID;
 	}
 
-
 	public void setO_id(int o_id) {
 		this.orderID = o_id;
 	}
-
 
 	public User getUser() {
 		return user;
 	}
 
-
 	public void setUser(User user) {
 		this.user = user;
 	}
-
-
-	
-
 
 	public int getOrderID() {
 		return orderID;
 	}
 
-
 	public void setOrderID(int orderID) {
 		this.orderID = orderID;
 	}
-
 
 	public String getOrderDate() {
 		return orderDate;
 	}
 
-
 	public void setOrderDate(String orderDate) {
 		this.orderDate = orderDate;
 	}
 
-
-	
-
-	
-
-	public String getEmiDuration() {
+	public int getEmiDuration() {
 		return emiDuration;
 	}
 
-
-	public void setEmiDuration(String emiDuration) {
+	public void setEmiDuration(int emiDuration) {
 		this.emiDuration = emiDuration;
 	}
-
 
 	public Product getProduct() {
 		return product;
 	}
 
-
 	public void setProduct(Product product) {
 		this.product = product;
 	}
+
 	@Override
 	public String toString() {
-		return "Order [id=" + orderID + ", stock=" + orderDate + ", quantity=" + emiDuration + ", quote=" + user+ ",product=" + product +"]";
+		return "Order [id=" + orderID + ", stock=" + orderDate + ", quantity=" + emiDuration + ", quote=" + user
+				+ ",product=" + product + "]";
 	}
 }

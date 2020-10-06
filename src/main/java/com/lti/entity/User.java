@@ -12,6 +12,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 /**
@@ -22,7 +24,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "users")
-@NamedQuery(name = "login", query = "FROM User WHERE uname=:username AND password=:password")
+@NamedQuery(name = "login", query = "FROM User WHERE uname=:username AND password=:password AND status=:status")
 @NamedQuery(name = "fetchifyes", query = "select u from User u where u.status=:status")
 public class User {
 	
@@ -48,7 +50,7 @@ public class User {
 	@Column(name = "ifsc",length=15)
 	private String ifsc;
 	
-	@Column(name = "address",length=15)
+	@Column(name = "address",length=40)
 	private String address;
 	
 	@Column(name = "bank",length=15)
@@ -61,6 +63,7 @@ public class User {
 	private String status;
 
 	@OneToMany(mappedBy = "user", cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	@JsonIgnore
 	private List<Order> ord = new ArrayList<Order>();
 
 	public String getUname() {
@@ -142,7 +145,6 @@ public class User {
 	public void setCard(String card) {
 		this.card = card;
 	}
-	
 
 	public String getStatus() {
 		return status;
@@ -152,9 +154,9 @@ public class User {
 		this.status = status;
 	}
 
-//	public List<Order> getOrd() {
-//		return ord;
-//	}
+	public List<Order> getOrd() {
+		return ord;
+	}
 
 	public void setOrd(List<Order> ord) {
 		this.ord = ord;

@@ -11,9 +11,7 @@
 
 		<properties>
 			<!-- Configuring JDBC properties -->
-			<!-- <property name="javax.persistence.jdbc.url"
-				value="jdbc:oracle:thin:@localhost:1521:orcl" /> -->
-			<property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:orcl" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1522:orcl" />
 			<property name="javax.persistence.jdbc.user" value="pazaar" />
 			<property name="javax.persistence.jdbc.password" value="123456" />
 			<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver" />

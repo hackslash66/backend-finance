@@ -26,66 +26,61 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "products")
-@SequenceGenerator(name = "custseq", sequenceName = "seq_cust", initialValue = 1001, allocationSize = 1)
 public class Product {
-
+	
 	@Id
-	@Column(name = "pID", length = 10)
-	@GeneratedValue(generator = "custseq", strategy = GenerationType.SEQUENCE)
-	private int pID;
+	@Column(name = "pId")
+	private int pId;
+	
+	@Column(name="pname",length = 30)
+	private String pname;
+	
+	@Column(name="pdes",length = 200)
+	private String pdes;
+	
+	@Column(name="prate")
+	private double prate;
 
-	@Column(name = "pName", length = 30)
-	private String pName;
-
-
-	@Column(name = "pDetails", length = 200)
-	private String pDetails;
-
-	@Column(name = "pRate", length = 10)
-	private double pRate;
-
-	@Column(name = "pImgSrc", length = 200)
-	private String pImgSrc;
-
-	public String getpImgSrc() {
-		return pImgSrc;
+	@Column(name = "purl",length=80)
+	private String purl;
+	
+	public int getpId() {
+		return pId;
 	}
 
-	public void setpImgSrc(String pImgSrc) {
-		this.pImgSrc = pImgSrc;
+	public void setpId(int pId) {
+		this.pId = pId;
 	}
 
-	public int getpID() {
-		return pID;
+	public String getPname() {
+		return pname;
 	}
 
-
-	public void setpId(int pID) {
-		this.pID = pID;
+	public void setPname(String pname) {
+		this.pname = pname;
 	}
 
-	public String getpName() {
-		return pName;
+	public String getPdes() {
+		return pdes;
 	}
 
-	public void setpName(String pName) {
-		this.pName = pName;
+	public void setPdes(String pdes) {
+		this.pdes = pdes;
 	}
 
-	public String getpDetails() {
-		return pDetails;
+	public double getPrate() {
+		return prate;
 	}
 
-
-	public void setpDetails(String pDetails) {
-		this.pDetails = pDetails;
+	public void setPrate(double prate) {
+		this.prate = prate;
 	}
 
+	public String getPurl() {
+		return purl;
+	}
 
-	public double getpRate() {
-		return pRate;
-	}
-	public void setpRate(double pRate) {
-		this.pRate = pRate;
-	}
+	public void setPurl(String purl) {
+		this.purl = purl;
+	}	
 }
